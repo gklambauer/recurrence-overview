@@ -287,6 +287,8 @@ Following Wang et al., $T$ is the number of low-level steps per high-level updat
 This leaves the field in an odd place. **The smallest neural networks here are getting the most out of recurrence, and the largest are only now starting to employ recurrence.**
 
 
+
+
 # References
 
 - <a id="ref-schmidhuber2015"></a> Schmidhuber, J. (2015). Deep learning in neural networks: An overview. *Neural Networks* 61, 85–117. [doi:10.1016/j.neunet.2014.09.003](https://doi.org/10.1016/j.neunet.2014.09.003) · [arXiv:1404.7828](https://arxiv.org/abs/1404.7828)
@@ -337,3 +339,74 @@ This leaves the field in an odd place. **The smallest neural networks here are g
 - <a id="ref-trm"></a> Jolicoeur-Martineau, A. (2025). Less is more: Recursive reasoning with tiny networks (TRM). [arXiv:2510.04871](https://arxiv.org/abs/2510.04871)
 - <a id="ref-se-rrm"></a> Freinschlag, R., Bertram, T., Kobler, E., Mayr, A., & Klambauer, G. (2026). Symbol-equivariant recurrent reasoning models.  *ICML 2026*. [arXiv:2603.02193](https://arxiv.org/abs/2603.02193) · [github.com/ml-jku/SE-RRM](https://github.com/ml-jku/SE-RRM)
 - <a id="ref-arcagi"></a> Chollet, F. (2019). On the measure of intelligence (introduces ARC, now ARC-AGI-1). [arXiv:1911.01547](https://arxiv.org/abs/1911.01547)
+
+# Notation
+
+| Symbol | Meaning | Where |
+|---|---|---|
+| **Indices and counts** | | |
+| $l$ | depth or layer index; also the iteration index of whole-network recurrence | Intro, Sections 0, 2, 3 |
+| $t$ | time step or token position | Sections 0.2, 1, 3.2 |
+| $i$ | loop index | Sections 3.6, 3.7, 4 |
+| $L$ | number of layers or depth steps | Sections 0, 3; ×L in the figures |
+| $T$ | sequence length | Sections 0.2, 1; ×T in the figures |
+| $T$ | number of low-level steps per high-level update (HRM) | Section 4 |
+| $N$ | number of high-level cycles (HRM) | Section 4; ×N in Figure 18 |
+| $r$, $r_t$ | number of loop iterations; per token $t$ (Mixture-of-Recursions) | Sections 3.6, 3.7; ×r in the figures |
+| $k$ | number of final loop passes that receive gradients | Sections 3.6, 3.8 |
+| **Inputs, states, and outputs** | | |
+| $x$ | input | throughout |
+| $x^t$ | input element or token at time $t$ | Sections 0.2, 1 |
+| $x^l$ | network output fed back as the next input (whole-network recurrence) | Intro, Section 2 |
+| $y$ | output | Section 0.1 |
+| $h^l$, $h^t$ | hidden state at depth $l$ or time $t$ | throughout |
+| $c^t$ | LSTM cell state; also the controller state (Learning to Think) | Sections 1.1, 1.3 |
+| $i^t$ | LSTM input gate | Section 1.1 |
+| $g^t$ | LSTM cell input | Section 1.1 |
+| $m^t$ | world-model state (Learning to Think) | Section 1.3 |
+| $z^\star$ | fixed point (DEQ) | Section 2.1 |
+| $z_\mathrm{L}^i$, $z_\mathrm{H}^i$ | low-level and high-level state (HRM) | Section 4 |
+| $e$ | prelude output, injected at every loop step (looped Transformer) | Section 3.6 |
+| $s^i$ | state after loop step $i$ (looped Transformer) | Section 3.6 |
+| $p$ | coda output (looped Transformer) | Section 3.6 |
+| **Networks, layers, and blocks** | | |
+| $F$ | whole neural network | throughout |
+| $f$, $f_l$ | layer or block; $f_l$ with its own weights | throughout |
+| $f_w$ | local transition function (classic GNN) | Section 3.3 |
+| $f_C$ | controller update (Learning to Think) | Section 1.3 |
+| $f_\mathrm{L}$, $f_\mathrm{H}$ | low-level and high-level module (HRM) | Section 4 |
+| $K$ | residual branch | Sections 3.2, 3.4 |
+| $P$, $R$ | prelude and tied core block (looped Transformer) | Section 3.6 |
+| $C$ | coda (looped Transformer) | Section 3.6 |
+| $C$, $M$ | controller and world model (Learning to Think) | Section 1.3 |
+| **Weights** | | |
+| $w$ | all weights of a network; shared weights if no index | throughout |
+| $w_l$ | weights of layer $l$ | Sections 0, 3 |
+| $w_C$, $w_M$ | weights of controller and world model | Section 1.3 |
+| $w_\mathrm{L}$, $w_\mathrm{H}$ | weights of low-level and high-level module (HRM) | Section 4 |
+| **Operators** | | |
+| $\circ$ | function composition | Sections 0.1, 3 |
+| $\odot$ | elementwise product | Section 1.1 |
+| $\equiv$ | constant over all steps, e.g. $x^t \equiv x$ | Section 3.2 |
+| ×∞, ×4, ×2 | loop until the fixed point, four passes, two passes | Figures 7, 8, 16 |
+
+# Abbreviations
+
+- **ACT**: adaptive computation time
+- **ALBERT**: A Lite BERT (BERT: Bidirectional Encoder Representations from Transformers)
+- **ARC-AGI**: Abstraction and Reasoning Corpus for Artificial General Intelligence
+- **DEQ**: deep equilibrium model
+- **GAT**: graph attention network
+- **GCN**: graph convolutional network
+- **GLA**: gated linear attention
+- **GNN**: graph neural network
+- **GPT**: generative pre-trained Transformer
+- **HRM**: Hierarchical Reasoning Model
+- **LLM**: large language model
+- **LSTM**: long short-term memory
+- **mLSTM**: matrix LSTM, the matrix-memory variant of the xLSTM
+- **RNN**: recurrent neural network
+- **SE-RRM**: symbol-equivariant recurrent reasoning model
+- **TRM**: Tiny Recursive Model
+- **UT**: Universal Transformer
+- **xLSTM**: extended long short-term memory
