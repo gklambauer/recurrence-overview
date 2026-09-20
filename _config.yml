@@ -1,0 +1,24 @@
+title: "The Illustrated Recurrence: From Amari-Hopfield Nets to GPT-6 Astra"
+description: "Notes on recurrence in machine learning"
+url: ""
+baseurl: ""
+
+markdown: kramdown
+theme: null
+
+kramdown:
+  math_engine: mathjax
+  input: GFM
+
+plugins:
+  - jekyll-feed
+
+exclude:
+  - README.md
+  - LICENSE
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
